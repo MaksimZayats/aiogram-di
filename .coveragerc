@@ -1,6 +1,5 @@
 [run]
 branch = True
-concurrency = greenlet
 
 [report]
 exclude_lines =
