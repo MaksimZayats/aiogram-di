@@ -1,0 +1,11 @@
+[run]
+branch = True
+concurrency = greenlet
+
+[report]
+exclude_lines =
+    # The standard pragma
+    pragma: no cover
+
+omit =
+    tests/*

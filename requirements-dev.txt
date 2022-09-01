@@ -1,0 +1,7 @@
+black>=22.8.0
+flakeheaven>=3.0.0
+isort>=5.10.1
+mypy>=0.971
+pytest>=7.1.2
+pytest-asyncio>=0.19.0
+pytest-coverage>=2.4.7
