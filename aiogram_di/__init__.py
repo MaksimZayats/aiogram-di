@@ -1,6 +1,6 @@
 from asyncio import iscoroutine
 from inspect import FullArgSpec
-from typing import Any, Awaitable, Callable, Dict
+from typing import Any, Awaitable, Callable, Dict, Union
 
 from aiogram import BaseMiddleware
 from aiogram.dispatcher.event.handler import HandlerObject
@@ -11,7 +11,8 @@ __all__ = ["DIMiddleware"]
 
 class DIMiddleware(BaseMiddleware):
     def __init__(
-        self, dependencies: Dict[type, Callable[[], Any] | Callable[[], Awaitable[Any]]]
+        self,
+        dependencies: Dict[type, Union[Callable[[], Any], Callable[[], Awaitable[Any]]]],
     ) -> None:
         self._dependencies = dependencies
 
@@ -48,7 +49,7 @@ class DIMiddleware(BaseMiddleware):
             )
 
         dependencies_resolvers: Dict[
-            str, Callable[[], Any] | Callable[[], Awaitable[Any]]
+            str, Union[Callable[[], Any], Callable[[], Awaitable[Any]]]
         ] = getattr(handler_obj, "dependencies_resolvers")
 
         for arg_name, resolver_function in dependencies_resolvers.items():
