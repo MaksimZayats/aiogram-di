@@ -2,7 +2,10 @@ import os
 
 from setuptools import find_packages, setup
 
-VERSION = "{{VERSION_PLACEHOLDER}}"
+VERSION = "{{VERSION_PLACEHOLDER}}"  # Version will be replaced by the CI/CD pipeline
+
+if VERSION.startswith("{{"):
+    VERSION = "0.0.0"
 
 
 def get_readme() -> str:
