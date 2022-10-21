@@ -1,1 +1,1 @@
-aiogram>=3.0.0b1,<3.0.0b5
+aiogram>=3.0.0b1
